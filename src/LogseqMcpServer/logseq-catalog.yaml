@@ -1,0 +1,53 @@
+version: 3
+name: logseq-mcp-catalog
+displayName: Logseq MCP Server
+registry:
+  logseq-mcp:
+    description: "Interact with Logseq knowledge graphs via HTTP API - read, create, update, search, and manage pages and blocks"
+    title: Logseq MCP Server
+    type: server
+    dateAdded: "2025-12-03T18:00:00Z"
+    image: logseq-mcp:latest
+    ref: ""
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    secrets:
+      - name: logseq_auth_token
+        env: LOGSEQ_AUTH_TOKEN
+        description: "Find your authorization token in Logseq Settings > Features > HTTP APIs server"
+      - name: logseq_host
+        env: LOGSEQ_HOST
+        description: "Logseq HTTP API host address (default: host.docker.internal for Docker)"
+        optional: true
+      - name: logseq_port
+        env: LOGSEQ_PORT
+        description: "Logseq HTTP API port (default: 12315)"
+        optional: true
+    env:
+      - name: LOGSEQ_AUTH_TOKEN
+        value: '{{logseq_auth_token}}'
+      - name: LOGSEQ_HOST
+        value: '{{logseq_host}}'
+      - name: LOGSEQ_PORT
+        value: '{{logseq_port}}'
+    tools:
+      - name: list_pages
+      - name: get_page_content
+      - name: get_block
+      - name: create_page
+      - name: append_block
+      - name: insert_block
+      - name: update_block
+      - name: delete_page
+      - name: delete_block
+      - name: search_content
+    prompts: 0
+    resources: {}
+    metadata:
+      category: productivity
+      tags:
+        - logseq
+        - knowledge-management
+        - notes
+        - outliner
+        - pkm

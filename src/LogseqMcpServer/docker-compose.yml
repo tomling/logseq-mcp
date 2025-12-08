@@ -1,0 +1,12 @@
+services:
+  logseq-mcp-server:
+    build: .
+    image: logseq-mcp:latest
+    container_name: logseq-mcp-server
+    environment:
+      - LOGSEQ_AUTH_TOKEN=${LOGSEQ_AUTH_TOKEN}
+      - LOGSEQ_HOST=${LOGSEQ_HOST:-host.docker.internal}
+      - LOGSEQ_PORT=${LOGSEQ_PORT:-12315}
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
