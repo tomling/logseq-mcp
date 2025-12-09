@@ -10,7 +10,7 @@ A Model Context Protocol (MCP) server that enables Claude and other AI assistant
    - Configure an authorization token
    - The API runs on `http://127.0.0.1:12315` by default
 
-2. **Docker MCP Gateway** installed ([Installation Guide](https://github.com/docker/mcp))
+2. **Docker MCP Gateway** installed ([Installation Guide](https://docs.docker.com/ai/mcp-catalog-and-toolkit/toolkit/))
 
 3. **Docker** for building and running the container
 
@@ -156,19 +156,4 @@ Contributions are welcome! Please:
 
 ## 📜 License
 
-See [LICENSE](../LICENSE) file.
-
-## 📚 References
-
-- [Logseq HTTP API Documentation](https://github.com/logseq/logseq/blob/master/resources/docs/api_server.html)
-- [Logseq Plugin API](https://logseq.github.io/plugins/)
-- [Model Context Protocol](https://modelcontextprotocol.io/)
-- [Docker MCP Gateway](https://github.com/docker/mcp)
-
-## 🙏 Acknowledgments
-
-Built with:
-
-- [ModelContextProtocol C# SDK](https://github.com/modelcontextprotocol/csharp-sdk)
-- [.NET 10](https://dotnet.microsoft.com/)
-- Inspired by the [Obsidian MCP Server](https://github.com/docker/mcp-obsidian)
+See [LICENSE](LICENSE) file.
