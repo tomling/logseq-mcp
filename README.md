@@ -125,6 +125,29 @@ dotnet build
 LOGSEQ_AUTH_TOKEN=your-token dotnet run
 ```
 
+### Updating the Docker Image
+
+If you've made changes to the MCP tools or server implementation, you'll need to rebuild and redeploy:
+
+```bash
+# 1. Navigate to the server directory
+cd src/LogseqMcpServer
+
+# 2. Rebuild the Docker image
+docker build -t logseq-mcp:latest .
+
+# 3. Navigate back to the project root
+cd ../..
+
+# 4. Reimport the catalog (this updates the MCP gateway configuration)
+docker mcp catalog import ./src/LogseqMcpServer/logseq-catalog.yaml
+
+# 5. The server should automatically pick up the new image on next use
+# If needed, you can restart the MCP gateway or your MCP client
+```
+
+**Note:** The secrets (like `logseq_auth_token`) are preserved across updates and don't need to be reconfigured.
+
 ### Project Structure
 
 ```
